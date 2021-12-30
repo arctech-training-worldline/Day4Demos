@@ -52,6 +52,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="documents\2021-12-30 - Session 1.pdf" />
+    <None Include="documents\Bitwise Operators Working.xlsx" />
     <None Include="documents\c# operators and expressions.pdf" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
