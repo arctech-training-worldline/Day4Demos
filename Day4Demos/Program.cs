@@ -10,74 +10,88 @@ namespace Day4Demos
     {
         static void Main(string[] args)
         {
+            //Demo1stHalf.Demo1();
+            //Demo1stHalf.Demo2();
+            //Demo1stHalf.Demo3();
+            //Demo1stHalf.Demo5();
+            //Demo1stHalf.Demo6();
+            //Demo1stHalf.Demo7();
+            //Demo1stHalf.Demo8();
+
+            //DemoBitWise.Demo1();
+            //DemoBitWise.Demo2();
+            //DemoBitWise.Demo3();
+
             //Demo1();
             //Demo2();
-            Demo3();
+            //Demo3();
+            Demo4();
         }
 
-        private static void Demo1()
+        static void Demo4()
         {
-            int x = 20, y = 10, z = 5;
+            int i = 10;
 
-            int answer1 = x / y * z;
-            int answer2 = x * y / z;
+            long l = i;
 
-            Console.WriteLine(answer1);
-            Console.WriteLine(answer2);
+            int j = (int)l;
+            
+            Console.WriteLine("Enter a large number:");
+            string answer = Console.ReadLine();
+            long l2 = long.Parse(answer);
+
+            int i2 = (int)l2;
+            Console.WriteLine($"The large number in an int variable = {i2}");
         }
 
         static void Demo2()
         {
-            int x = 10, y = 20, z = 30;
+            Employee e = new Employee();
+            int x = 10;
 
-            int answer1 = x + y++ * z;
-            //y = y + 1;
+            Console.WriteLine($"{typeof(Employee)}, {typeof(int)}");
 
-
-            //z = z - 1;
-            int answer2 = x + --z - y;
-
-            Console.WriteLine(answer1);
-            Console.WriteLine(answer2);
+            // is and as operators to be covered tomorrow 31st Dec            
         }
 
-        private static void Demo3()
+        static void Demo3()
         {
-            int j = 1, k = 1;
-            Console.WriteLine("===========================");
-            for (int i = 0; i < 5; i++)
+            TestTypeOf(10);
+            TestTypeOf("Avinash");
+        }
+
+        static void TestTypeOf(object x)
+        {
+            Console.WriteLine(x.GetType());
+
+            //if(x.GetType() == typeof(int))    // Old style
+            if(x is int)                        // New style from C# 7.0
             {
-                Console.WriteLine($"i={i}, j={j++}, k={++k}");
+                int num = (int)x;
+                Console.WriteLine($"You passed a number parameter. Its cube is {num*num*num}!");
             }
-
-            Console.WriteLine("===========================");
-            Console.WriteLine($"RAW Value => j={j}, k={k}");
-
-            //Expected output
-            //===========================
-            //i=0, j=1, k=2
-            //i=1, j=2, k=3
-            //i=2, j=3, k=4
-            //i=3, j=4, k=5
-            //i=4, j=5, k=6
-            //===========================
-            //RAW Value => j=6, k=6
-
-            Console.WriteLine("===========================");
-            for (int i = 0; i < 5; ++i)
+            //else if (x.GetType() == typeof(string))
+            else if(x is string)                // New style from C# 7.0
             {
-                Console.WriteLine($"i={i}, j={j++}, k={++k}");
-            }
-            Console.WriteLine("===========================");
+                string str = (string)x;
+                Console.WriteLine($"You passed a string parameter. Let me encrypt it!!!");
+            }            
+        }
 
-            //Expected output
-            //===========================
-            //i=0, j=6, k=7
-            //i=1, j=7, k=8
-            //i=2, j=8, k=9
-            //i=3, j=9, k=10
-            //i=4, j=10, k=11
-            //===========================
+        static void Demo1()
+        {
+            Console.WriteLine("Enter your password: ");
+            string password = Console.ReadLine();
+
+            // Using if
+            if (password == "zoom")
+                Console.WriteLine("Please enter these gates");
+            else
+                Console.WriteLine("Return from where you came!");
+
+            // using ?: operator
+            string str = password == "zoom" ? "Please enter these gates" : "Return from where you came!";
+            Console.WriteLine(str);
         }
     }
 }
